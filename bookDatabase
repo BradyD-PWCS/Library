@@ -5,6 +5,7 @@ static Scanner search = new Scanner(System.in);
 static int choice;
 static int cont = 1;
 static int bookNum;
+static int numPick;
 	public static void main(String[] args) {
 		addBook();
 	}
@@ -26,8 +27,9 @@ static int bookNum;
 				if(database.bookCount>0) {
 				System.out.println("which book would you like to examine?");
 				System.out.println("please enter a number between 0 and " + (database.bookCount-1));
-					if(search.nextInt()>=0 && search.nextInt()<=database.bookCount-1) {
-				database.getDetails(search.nextInt());
+					numPick = search.nextInt();
+					if(numPick>=0 && numPick<=database.bookCount-1) {
+				database.getDetails(numPick);
 					}
 					else {
 						System.out.println("sorry. we don't have that book yet.");
