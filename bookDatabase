@@ -1,0 +1,46 @@
+package library;
+import java.util.Scanner;
+public class bookDatabase {
+static Scanner search = new Scanner(System.in);
+static int choice;
+static int cont = 1;
+static int bookNum;
+	public static void main(String[] args) {
+		addBook();
+	}
+	
+	public static void addBook(){
+		book database = new book();
+		System.out.println("Hello! and welcome to the digital book database!");
+		while(cont==1) {
+			System.out.println("would you like to add a book, learn the number of books, learn about books we have, or exit?");
+			System.out.println("1-add a book, 2-get a count of the books, 3-get book details, 4-exit");
+			choice = search.nextInt();
+			if(choice == 1) {
+				database.newBook();
+			}
+			else if(choice == 2) {
+				database.getBookCount();
+			}
+			else if(choice == 3) {
+				if(database.bookCount>0) {
+				System.out.println("which book would you like to examine?");
+				System.out.println("please enter a number between 0 and " + (database.bookCount-1));
+				database.getDetails(search.nextInt());
+				}
+				else {
+					System.out.println("Sorry. We don't have any books to examine yet.");
+				}
+			}
+			else if(choice == 4) {
+				cont = 0;
+				break;
+			}
+			else {
+				System.out.println("sorry. the database couldn't understand what you typed, please try again.");
+			}
+		}
+
+	}
+
+}
