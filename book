@@ -1,0 +1,33 @@
+package library;
+import java.util.Scanner;
+
+public class book {	
+Scanner type = new Scanner(System.in);
+int bookCount = 0;
+String title = "0";
+String author = "0";
+String genre = "0";
+String pageCount = "0";
+int cont = 1;
+
+public void newBook() {
+	System.out.println("Please enter the title of the book.");
+		title += "|" + bookCount + "|" + type.nextLine() + "/" + bookCount + "/";
+	System.out.println("Please enter the author of the book.");
+		author += "|" + bookCount + "|" + type.nextLine() + "/" + bookCount + "/";
+	System.out.println("Please enter the genre of the book.");
+		genre += "|" + bookCount + "|" + type.nextLine() + "/" + bookCount + "/";
+	System.out.println("Please enter the number of pages the book has.");
+		pageCount += "|" + bookCount + "|" + type.nextLine() + "/" + bookCount + "/";
+	bookCount ++;
+}
+public void getBookCount() {
+	System.out.println("we currently have " + bookCount + " books.");
+}
+public void getDetails(int selection) {
+	System.out.println("book " + selection + " is titled " + title.substring(title.indexOf("|" + selection + "|") + 2 + String.valueOf(selection).length(), title.indexOf("/" + selection + "/")));
+	System.out.println("book " + selection + " is authored by " + author.substring(author.indexOf("|" + selection + "|")+2+ String.valueOf(selection).length(), author.indexOf("/" + selection + "/")));
+	System.out.println("book " + selection + " is in the genre of " + genre.substring(genre.indexOf("|" + selection + "|")+2+ String.valueOf(selection).length(), genre.indexOf("/" + selection + "/")));
+	System.out.println("and book " + selection + " has " + pageCount.substring(pageCount.indexOf("|" + selection + "|")+2+ String.valueOf(selection).length(), pageCount.indexOf("/" + selection + "/")) + " pages");
+}
+}
