@@ -26,7 +26,12 @@ static int bookNum;
 				if(database.bookCount>0) {
 				System.out.println("which book would you like to examine?");
 				System.out.println("please enter a number between 0 and " + (database.bookCount-1));
+					if(search.nextInt()>=0 && search.nextInt()<=database.bookCount-1) {
 				database.getDetails(search.nextInt());
+					}
+					else {
+						System.out.println("sorry. we don't have that book yet.");
+					}
 				}
 				else {
 					System.out.println("Sorry. We don't have any books to examine yet.");
